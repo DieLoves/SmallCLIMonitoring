@@ -82,7 +82,7 @@ fn main() {
     }
 
     println!("Мониторинг завершен. Данные сохранены в {}", output_file);
-
+    println!("Выполнил: Мухамбетов Инсар для Лабораторной работы №2. Исходный код: https://github.com/DieLoves/SmallCLIMonitoring");
     // Костыль :)
     loop {}
 }
