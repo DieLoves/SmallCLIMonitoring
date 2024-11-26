@@ -1,6 +1,7 @@
 use sysinfo::{System, Networks};
 use std::{fs::File, io::Write, thread, time::Duration};
 use chrono::Local;
+use clearscreen::{ClearScreen};
 
 fn main() {
     println!("Кроссплатформенный мониторинг энергопотребления на Rust");
@@ -31,6 +32,8 @@ fn main() {
             file_name.to_string()
         }
     };
+
+    clearscreen::clear().unwrap();
 
     // Открытие файла для записи
     let mut file = File::create(&output_file).expect("Не удалось создать файл");
@@ -81,8 +84,8 @@ fn main() {
         thread::sleep(Duration::from_secs(interval));
     }
 
-    println!("Мониторинг завершен. Данные сохранены в {}", output_file);
+    println!("\n\nМониторинг завершен. Данные сохранены в {}", output_file);
     println!("Выполнил: Мухамбетов Инсар для Лабораторной работы №2. Исходный код: https://github.com/DieLoves/SmallCLIMonitoring");
-    // Костыль :)
-    loop {}
+    let mut dummy = String::new();
+    std::io::stdin().read_line(&mut dummy).unwrap(); // Ожидаем нажатия Enter
 }
